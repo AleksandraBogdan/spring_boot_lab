@@ -6,17 +6,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.io.File;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
-public class  TaskDto {
+public class TaskDto {
     private int id;
     @NotNull
     private String name;

@@ -5,7 +5,10 @@ import com.epam.springLabEpam.dto.UserDto;
 import com.epam.springLabEpam.model.User;
 import com.epam.springLabEpam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

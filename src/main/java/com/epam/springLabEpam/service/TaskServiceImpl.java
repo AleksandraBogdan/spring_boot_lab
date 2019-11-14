@@ -28,7 +28,7 @@ public class TaskServiceImpl implements TaskService {
     private UsersDao usersDao;
 
     @Autowired
-    TaskServiceImpl(TasksDao tasksDao){
+    TaskServiceImpl(TasksDao tasksDao) {
         this.tasksDao = tasksDao;
     }
 
@@ -53,7 +53,7 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskDto> getAllTask() {
         List<Task> taskList = tasksDao.findAll(Sort.by(Sort.Order.asc("taskPriority")));
         List<TaskDto> taskDtoList = new ArrayList<>();
-        for (Task task: taskList) {
+        for (Task task : taskList) {
             TaskDto taskDto = TaskDto.builder()
                     .id(task.getTaskId())
                     .name(task.getName())
@@ -110,7 +110,7 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskDto> getUserTasks(int id) {
         List<Task> taskList = tasksDao.findAllByUserId(id);
         List<TaskDto> taskDtoList = new ArrayList<>();
-        for (Task task: taskList) {
+        for (Task task : taskList) {
             TaskDto taskDto = TaskDto.builder()
                     .id(task.getTaskId())
                     .name(task.getName())

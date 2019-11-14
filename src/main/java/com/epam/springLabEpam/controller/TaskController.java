@@ -2,15 +2,12 @@ package com.epam.springLabEpam.controller;
 
 import com.epam.springLabEpam.dto.TaskDto;
 import com.epam.springLabEpam.dto.UserDto;
-import com.epam.springLabEpam.model.Task;
 import com.epam.springLabEpam.model.TaskPriority;
 import com.epam.springLabEpam.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.List;
 
 @RestController
@@ -45,7 +42,7 @@ public class TaskController {
 
     @GetMapping("/getUserTasks")
     public List<TaskDto> getUserTasks(int userId) {
-        return  taskService.getUserTasks(userId);
+        return taskService.getUserTasks(userId);
     }
 
     @PutMapping("/{taskId}/setUndone")

@@ -9,6 +9,7 @@ import com.epam.springLabEpam.model.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
     public User signIn(String email, String password) {
         User userFromDB = userDao.findByEmail(email);
         if (userFromDB.getPassword().equals(password))
-        return userFromDB;
+            return userFromDB;
         else throw new NoSuchUserException();
     }
 
@@ -59,7 +60,7 @@ public class UserServiceImpl implements UserService {
         md.update(secretWord.getBytes());
         String subscriptionKey = Arrays.toString(md.digest());
         User userFromDB = userDao.findByEmail(user.getEmail());
-        if (userFromDB.getSubscription().equals(subscriptionKey)){
+        if (userFromDB.getSubscription().equals(subscriptionKey)) {
             System.out.println("Already subscribed");
             return;
         }
@@ -82,6 +83,6 @@ public class UserServiceImpl implements UserService {
                     .build();
             userDtoList.add(userDto);
         }
-        return  userDtoList;
+        return userDtoList;
     }
 }
